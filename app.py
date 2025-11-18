@@ -1,4 +1,4 @@
-# app.py - ELEGANT PROFESSIONAL VERSION
+# app.py - PERFECTED PROFESSIONAL VERSION
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -13,49 +13,86 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Elegant Professional CSS with white background and transitions
+# PERFECTED CSS - All issues fixed
 st.markdown("""
 <style>
-    /* Global white background */
+    /* COMPLETE WHITE BACKGROUND FIX */
     .main {
-        background-color: #ffffff;
+        background-color: #ffffff !important;
     }
     .stApp {
-        background-color: #ffffff;
+        background-color: #ffffff !important;
+    }
+    .block-container {
+        background-color: #ffffff !important;
+        padding-top: 0rem !important;
+    }
+    .css-18e3th9 {
+        background-color: #ffffff !important;
     }
     
-    /* Hero Section with fade-in animation */
+    /* HERO SECTION WITH FADE-IN */
     .hero-container {
         background: #ffffff;
-        padding: 120px 0px 80px 0px;
+        padding: 100px 0px 60px 0px;
         text-align: center;
         color: #2c3e50;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
         border-bottom: 1px solid #e9ecef;
-        animation: fadeIn 1.2s ease-in;
+        animation: heroFadeIn 1.5s ease-out;
     }
     
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-30px); }
-        to { opacity: 1; transform: translateY(0); }
+    @keyframes heroFadeIn {
+        0% { 
+            opacity: 0; 
+            transform: translateY(40px); 
+        }
+        100% { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
     }
     
     .hero-title {
-        font-size: 3.8rem;
+        font-size: 4rem;
         font-weight: 300;
         margin-bottom: 1rem;
         font-family: 'Georgia', 'Times New Roman', serif;
         color: #2c3e50;
         letter-spacing: -0.5px;
+        animation: titleSlide 1.2s ease-out 0.3s both;
+    }
+    
+    @keyframes titleSlide {
+        0% { 
+            opacity: 0; 
+            transform: translateY(30px); 
+        }
+        100% { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
     }
     
     .hero-subtitle {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         font-weight: 300;
         margin-bottom: 2rem;
         color: #7f8c8d;
         font-family: 'Georgia', serif;
         font-style: italic;
+        animation: subtitleFade 1.5s ease-out 0.6s both;
+    }
+    
+    @keyframes subtitleFade {
+        0% { 
+            opacity: 0; 
+            transform: translateY(20px); 
+        }
+        100% { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
     }
     
     .hero-description {
@@ -65,44 +102,63 @@ st.markdown("""
         color: #5d6d7e;
         line-height: 1.6;
         font-family: 'Helvetica Neue', Arial, sans-serif;
+        animation: descriptionFade 1.5s ease-out 0.9s both;
     }
     
-    /* Section headers with slide-in animation */
+    @keyframes descriptionFade {
+        0% { 
+            opacity: 0; 
+            transform: translateY(15px); 
+        }
+        100% { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+    }
+    
+    /* SECTION HEADERS */
     .section-header {
         font-size: 2.4rem;
         font-weight: 300;
         color: #2c3e50;
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
         text-align: center;
         padding-bottom: 1rem;
         border-bottom: 1px solid #ecf0f1;
         font-family: 'Georgia', serif;
-        animation: slideIn 0.8s ease-out;
+        animation: sectionSlide 0.8s ease-out;
     }
     
-    @keyframes slideIn {
-        from { opacity: 0; transform: translateX(-50px); }
-        to { opacity: 1; transform: translateX(0); }
+    @keyframes sectionSlide {
+        from { 
+            opacity: 0; 
+            transform: translateX(-30px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translateX(0); 
+        }
     }
     
     .subsection-header {
         font-size: 1.6rem;
         font-weight: 400;
-        color: #34495e;
+        color: #2c3e50;
         margin-bottom: 1.5rem;
         font-family: 'Georgia', serif;
         border-left: 3px solid #3498db;
         padding-left: 1rem;
+        margin-top: 0rem;
     }
     
-    /* Elegant cards */
+    /* FIXED PREDICTION CARDS - NO WEIRD BARS */
     .prediction-card {
         background: #ffffff;
-        padding: 2.5rem;
+        padding: 2rem 2.5rem;
         border-radius: 0px;
         box-shadow: 0 2px 15px rgba(0,0,0,0.08);
         border: 1px solid #ecf0f1;
-        margin: 2rem 0;
+        margin: 1.5rem 0;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
@@ -113,13 +169,14 @@ st.markdown("""
     
     .property-card {
         background: #f8f9fa;
-        padding: 2rem;
+        padding: 1.8rem 1rem;
         border-radius: 0px;
         text-align: center;
         border-top: 3px solid #3498db;
         transition: all 0.3s ease;
-        margin: 0.5rem;
+        margin: 0.3rem;
         font-family: 'Helvetica Neue', Arial, sans-serif;
+        height: 100%;
     }
     
     .property-card:hover {
@@ -129,12 +186,13 @@ st.markdown("""
     
     .metric-card {
         background: #ffffff;
-        padding: 1.8rem;
+        padding: 1.5rem 1rem;
         border-radius: 0px;
         text-align: center;
         border: 1px solid #e9ecef;
-        margin: 0.5rem;
+        margin: 0.3rem;
         transition: all 0.3s ease;
+        height: 100%;
     }
     
     .metric-card:hover {
@@ -142,12 +200,12 @@ st.markdown("""
         transform: translateY(-2px);
     }
     
-    /* Professional buttons */
+    /* BUTTONS - ALL TEXT VISIBLE */
     .stButton>button {
         background: #2c3e50;
-        color: white;
+        color: white !important;
         border: none;
-        padding: 0.9rem 2.5rem;
+        padding: 0.8rem 2rem;
         border-radius: 0px;
         font-weight: 400;
         font-size: 1rem;
@@ -161,33 +219,35 @@ st.markdown("""
         background: #34495e;
         transform: translateY(-1px);
         box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+        color: white !important;
     }
     
     .example-btn {
         background: #ffffff;
-        color: #2c3e50;
+        color: #2c3e50 !important;
         border: 1px solid #bdc3c7;
-        padding: 0.6rem 1.5rem;
+        padding: 0.5rem 1.2rem;
         border-radius: 0px;
         font-size: 0.9rem;
-        margin: 0.3rem;
+        margin: 0.2rem;
         transition: all 0.3s ease;
         font-family: 'Helvetica Neue', Arial, sans-serif;
     }
     
     .example-btn:hover {
         background: #2c3e50;
-        color: white;
+        color: white !important;
         border-color: #2c3e50;
     }
     
-    /* Input fields */
+    /* INPUT FIELDS */
     .stTextInput>div>div>input {
         border: 1px solid #bdc3c7;
         border-radius: 0px;
-        padding: 0.9rem;
+        padding: 0.8rem;
         font-size: 1rem;
         font-family: 'Helvetica Neue', Arial, sans-serif;
+        color: #2c3e50 !important;
     }
     
     .stTextInput>div>div>input:focus {
@@ -195,15 +255,15 @@ st.markdown("""
         box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
     }
     
-    /* Elegant insights */
+    /* INSIGHTS */
     .insight-box {
         background: #f8f9fa;
-        padding: 1.5rem;
+        padding: 1.2rem;
         border-radius: 0px;
-        margin: 1rem 0;
+        margin: 0.8rem 0;
         border-left: 4px solid #3498db;
-        font-size: 1rem;
-        line-height: 1.6;
+        font-size: 0.95rem;
+        line-height: 1.5;
         font-family: 'Helvetica Neue', Arial, sans-serif;
         color: #2c3e50;
         transition: all 0.3s ease;
@@ -214,60 +274,49 @@ st.markdown("""
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     
-    /* Dataframes */
-    .dataframe {
-        border: 1px solid #e9ecef;
-        border-radius: 0px;
-        font-family: 'Helvetica Neue', Arial, sans-serif;
+    /* REMOVE ALL WEIRD SPACING */
+    .css-1d391kg {
+        padding-top: 0rem !important;
+    }
+    .css-1kyxreq {
+        margin-top: 0rem !important;
+    }
+    .css-1v0mbdj {
+        margin-top: 0rem !important;
     }
     
-    /* Footer */
+    /* FIX ALL TEXT COLORS */
+    .stMarkdown {
+        color: #2c3e50 !important;
+    }
+    .stMetric {
+        color: #2c3e50 !important;
+    }
+    .stDataFrame {
+        color: #2c3e50 !important;
+    }
+    
+    /* FOOTER */
     .footer {
         text-align: center;
-        padding: 4rem 0;
+        padding: 3rem 0;
         color: #7f8c8d;
         border-top: 1px solid #ecf0f1;
-        margin-top: 4rem;
+        margin-top: 3rem;
         font-family: 'Georgia', serif;
         font-style: italic;
-    }
-    
-    /* Remove white bars */
-    .css-1d391kg, .css-12oz5g7 {
-        background-color: #ffffff;
-    }
-    
-    /* Tab styling */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 2px;
-    }
-    
-    .stTabs [data-baseweb="tab"] {
-        height: 50px;
-        white-space: pre-wrap;
-        background-color: #f8f9fa;
-        border-radius: 0px;
-        gap: 1px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-    
-    .stTabs [aria-selected="true"] {
-        background-color: #2c3e50;
-        color: white;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# ==================== HERO SECTION ====================
+# ==================== HERO SECTION WITH TRANSITIONS ====================
 st.markdown("""
 <div class="hero-container">
     <div class="hero-title">PolymerAI Predictor</div>
     <div class="hero-subtitle">Advanced Computational Materials Science</div>
     <div class="hero-description">
         Research-grade machine learning platform for predicting polymer properties 
-        with unprecedented accuracy and reliability.
+        with unprecedented accuracy and scientific reliability.
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -439,7 +488,7 @@ with col1:
     
     for i, (name, smiles) in enumerate(examples.items()):
         with example_cols[i]:
-            if st.button(name, key=f"btn_{i}", use_container_width=True):
+            if st.button(name, key=f"btn_{i}"):
                 st.session_state.smiles_input = smiles
                 st.rerun()
     
@@ -461,17 +510,14 @@ with col1:
                         f"{predictions['Tg_K']:.1f} K", 
                         f"{(predictions['Tg_K'] - 273.15):.1f} °C"
                     )
-                    st.markdown('</div>', unsafe_allow_html=True)
                 
                 with result_cols[1]:
                     st.markdown('<div class="property-card">', unsafe_allow_html=True)
                     st.metric("Density", f"{predictions['Density_g_cm3']:.3f} g/cm³")
-                    st.markdown('</div>', unsafe_allow_html=True)
                 
                 with result_cols[2]:
                     st.markdown('<div class="property-card">', unsafe_allow_html=True)
                     st.metric("Dielectric Constant", f"{predictions['Dielectric_Constant']:.2f}")
-                    st.markdown('</div>', unsafe_allow_html=True)
                 
                 st.markdown('</div>', unsafe_allow_html=True)
                 
@@ -504,15 +550,12 @@ with col2:
     with metric_cols[0]:
         st.markdown('<div class="metric-card">', unsafe_allow_html=True)
         st.metric("Tg Accuracy", "R² = 0.94")
-        st.markdown('</div>', unsafe_allow_html=True)
     with metric_cols[1]:
         st.markdown('<div class="metric-card">', unsafe_allow_html=True)
         st.metric("Density Accuracy", "R² = 0.89")
-        st.markdown('</div>', unsafe_allow_html=True)
     with metric_cols[2]:
         st.markdown('<div class="metric-card">', unsafe_allow_html=True)
         st.metric("Dielectric Accuracy", "R² = 0.86")
-        st.markdown('</div>', unsafe_allow_html=True)
     
     df = load_sample_data()
     
@@ -541,7 +584,6 @@ POLYMER_DATABASE = {
     "Polystyrene (PS)": {"smiles": "[*]C(C1=CC=CC=C1)[*]", "tg": 373, "density": 1.05, "dielectric": 2.6, "uses": "Disposable cups, insulation"},
     "Polyvinyl Chloride (PVC)": {"smiles": "[*]C(Cl)C[*]", "tg": 353, "density": 1.38, "dielectric": 3.4, "uses": "Pipes, cables, flooring"},
     "Nylon-6": {"smiles": "[*]N(C(=O)C1CCCC1)[*]", "tg": 323, "density": 1.14, "dielectric": 3.4, "uses": "Textiles, engineering parts"},
-    "Polypropylene (PP)": {"smiles": "[*]C(C)C[*]", "tg": 263, "density": 0.90, "dielectric": 2.2, "uses": "Automotive, textiles"},
 }
 
 db_data = []
@@ -574,7 +616,7 @@ if st.session_state.prediction_history:
 
 st.markdown("""
 <div class="footer">
-    <p style="font-size: 1.1rem; margin-bottom: 1rem;">PolymerAI Predictor</p>
+    <p style="font-size: 1.1rem; margin-bottom: 1rem; color: #2c3e50;">PolymerAI Predictor</p>
     <p style="font-size: 0.95rem; color: #7f8c8d;">
         Advanced Computational Platform for Materials Science Research<br>
         Proprietary Machine Learning Algorithms • Research-Grade Accuracy
